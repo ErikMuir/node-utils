@@ -1,15 +1,11 @@
-import PrimitiveKeyValuePair from '../../src/utilities/PrimitiveKeyValuePair';
-import KeyValuePair from '../../src/utilities/KeyValuePair';
-import * as utils from '../../src/utilities/test-utils';
+import PrimitiveKeyValuePair from '../src/utilities/PrimitiveKeyValuePair';
+import KeyValuePair from '../src/utilities/KeyValuePair';
+import * as utils from '../src/utilities/test-utils';
 
 describe('PrimitiveKeyValuePair', () => {
-  const key = 'foo';
-  const value = 'bar';
-  const actual = new PrimitiveKeyValuePair(key, value);
-
-  test('returns', () => {
-    expect(actual).toBeDefined();
-  });
+  const expectedKey = 'foo';
+  const expectedValue = 'bar';
+  const actual = new PrimitiveKeyValuePair(expectedKey, expectedValue);
 
   test('extends KeyValuePair', () => {
     expect(actual instanceof KeyValuePair).toBe(true);
@@ -17,22 +13,33 @@ describe('PrimitiveKeyValuePair', () => {
 
   describe('constructor', () => {
     test('sets key', () => {
-      expect(actual._key).toBe(key);
+      expect(actual.key).toBe(expectedKey);
     });
 
-    test('sets value when value is a string', () => {
-      expect(actual._value).toBe(value);
+    [
+      { value: 'bar', desc: 'a string' },
+      { value: 42, desc: 'a number' },
+      { value: false, desc: 'a boolean' },
+    ].forEach(({ value, desc }) => {
+      test(`sets value when value is ${desc}`, () => {
+        const pkvp = new PrimitiveKeyValuePair(expectedKey, value);
+        expect(pkvp.value).toBe(value);
+      });
     });
 
-    test('throws error when value is not a string, number, or boolean', () => {
-      [null, undefined, {}, []].forEach(value => {
+    [
+      { value: null, desc: 'null' },
+      { value: undefined, desc: 'undefined' },
+      { value: {}, desc: 'an object' },
+      { value: [], desc: 'an array' },
+    ].forEach(({ value, desc }) => {
+      test(`throws error when value is ${desc}`, () => {
         const action = () => new PrimitiveKeyValuePair('foobar', value);
         const assertions = e => {
           expect(e).toBeDefined();
           expect(e instanceof TypeError).toBe(true);
           expect(e.message).toBe('Values must be of type string, number, or boolean');
         };
-
         utils.expectError(action, assertions);
       });
     });
@@ -40,15 +47,15 @@ describe('PrimitiveKeyValuePair', () => {
 
   describe('value property', () => {
     test('returns value', () => {
-      expect(actual.value).toBe(value);
+      expect(actual.value).toBe(expectedValue);
     });
 
     [
-      { value: 'baz', desc: 'string' },
-      { value: 42, desc: 'number' },
-      { value: false, desc: 'boolean' },
+      { value: 'baz', desc: 'a string' },
+      { value: 42, desc: 'a number' },
+      { value: false, desc: 'a boolean' },
     ].forEach(x => {
-      test(`can be set to a ${x.desc}`, () => {
+      test(`can be set to ${x.desc}`, () => {
         actual.value = x.value;
         expect(actual.value).toBe(x.value);
       });
@@ -67,7 +74,6 @@ describe('PrimitiveKeyValuePair', () => {
           expect(e instanceof TypeError).toBe(true);
           expect(e.message).toBe('Values must be of type string, number, or boolean');
         };
-
         utils.expectError(action, assertions);
       });
     });
