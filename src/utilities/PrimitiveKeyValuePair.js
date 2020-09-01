@@ -1,14 +1,10 @@
-export default class PrimitiveKeyValuePair {
+import KeyValuePair from "./KeyValuePair";
+
+export default class PrimitiveKeyValuePair extends KeyValuePair {
   constructor(key, value) {
-    validateKey(key);
+    super(key, value);
     validateValue(value);
-
-    this._key = key;
-    this._value = value;
   }
-
-  get key() { return this._key; }
-  set key(newValue) { throw new Error('Keys are read-only'); }
 
   get value() { return this._value; }
   set value(newValue) {
@@ -16,12 +12,6 @@ export default class PrimitiveKeyValuePair {
     this._value = newValue;
   }
 }
-
-const validateKey = key => {
-  if (typeof key !== 'string') {
-    throw new TypeError('Keys must be of type string');
-  }
-};
 
 const allowedTypes = ['string', 'number', 'boolean'];
 

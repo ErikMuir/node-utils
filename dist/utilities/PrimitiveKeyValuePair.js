@@ -5,20 +5,14 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-class PrimitiveKeyValuePair {
+var _KeyValuePair = _interopRequireDefault(require("./KeyValuePair"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+class PrimitiveKeyValuePair extends _KeyValuePair.default {
   constructor(key, value) {
-    validateKey(key);
+    super(key, value);
     validateValue(value);
-    this._key = key;
-    this._value = value;
-  }
-
-  get key() {
-    return this._key;
-  }
-
-  set key(newValue) {
-    throw new Error('Keys are read-only');
   }
 
   get value() {
@@ -33,13 +27,6 @@ class PrimitiveKeyValuePair {
 }
 
 exports.default = PrimitiveKeyValuePair;
-
-const validateKey = key => {
-  if (typeof key !== 'string') {
-    throw new TypeError('Keys must be of type string');
-  }
-};
-
 const allowedTypes = ['string', 'number', 'boolean'];
 
 const validateValue = value => {

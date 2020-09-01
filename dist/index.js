@@ -4,14 +4,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 var _exportNames = {
+  KeyValuePair: true,
   PrimitiveKeyValuePair: true
 };
+Object.defineProperty(exports, "KeyValuePair", {
+  enumerable: true,
+  get: function () {
+    return _KeyValuePair.default;
+  }
+});
 Object.defineProperty(exports, "PrimitiveKeyValuePair", {
   enumerable: true,
   get: function () {
     return _PrimitiveKeyValuePair.default;
   }
 });
+
+var _KeyValuePair = _interopRequireDefault(require("./utilities/KeyValuePair"));
 
 var _PrimitiveKeyValuePair = _interopRequireDefault(require("./utilities/PrimitiveKeyValuePair"));
 
