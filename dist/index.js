@@ -5,7 +5,9 @@ Object.defineProperty(exports, "__esModule", {
 });
 var _exportNames = {
   KeyValuePair: true,
-  PrimitiveKeyValuePair: true
+  PrimitiveKeyValuePair: true,
+  Header: true,
+  PrimitiveMap: true
 };
 Object.defineProperty(exports, "KeyValuePair", {
   enumerable: true,
@@ -19,10 +21,26 @@ Object.defineProperty(exports, "PrimitiveKeyValuePair", {
     return _PrimitiveKeyValuePair.default;
   }
 });
+Object.defineProperty(exports, "Header", {
+  enumerable: true,
+  get: function () {
+    return _Header.default;
+  }
+});
+Object.defineProperty(exports, "PrimitiveMap", {
+  enumerable: true,
+  get: function () {
+    return _PrimitiveMap.default;
+  }
+});
 
 var _KeyValuePair = _interopRequireDefault(require("./utilities/KeyValuePair"));
 
 var _PrimitiveKeyValuePair = _interopRequireDefault(require("./utilities/PrimitiveKeyValuePair"));
+
+var _Header = _interopRequireDefault(require("./utilities/Header"));
+
+var _PrimitiveMap = _interopRequireDefault(require("./utilities/PrimitiveMap"));
 
 var _testUtils = require("./utilities/test-utils");
 
