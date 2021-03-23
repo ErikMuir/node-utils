@@ -1,6 +1,6 @@
-import PrimitiveKeyValuePair from './PrimitiveKeyValuePair';
+const PrimitiveKeyValuePair = require('./PrimitiveKeyValuePair');
 
-export default class Header extends PrimitiveKeyValuePair {
+module.exports = class Header extends PrimitiveKeyValuePair {
   constructor(key, value) {
     super(key, value);
   }

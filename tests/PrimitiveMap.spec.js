@@ -1,5 +1,5 @@
-import { PrimitiveMap, PrimitiveKeyValuePair } from '../src';
-import * as utils from '../src/utilities/test-utils';
+const { PrimitiveMap, PrimitiveKeyValuePair } = require('../src');
+const utils = require('../src/utilities/test-utils');
 
 describe('PrimitiveMap', () => {
   const key = 'foo';

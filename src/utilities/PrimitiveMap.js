@@ -1,6 +1,6 @@
-import PrimitiveKeyValuePair from './PrimitiveKeyValuePair';
+const PrimitiveKeyValuePair = require('./PrimitiveKeyValuePair');
 
-export default class PrimitiveMap extends Map {
+module.exports = class PrimitiveMap extends Map {
   set(...args) {
     const pair = args[0] instanceof PrimitiveKeyValuePair
       ? args[0]

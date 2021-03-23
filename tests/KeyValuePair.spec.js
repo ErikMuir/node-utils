@@ -1,5 +1,5 @@
-import KeyValuePair from '../src/utilities/KeyValuePair';
-import * as utils from '../src/utilities/test-utils';
+const KeyValuePair = require('../src/utilities/KeyValuePair');
+const utils = require('../src/utilities/test-utils');
 
 describe('KeyValuePair', () => {
   const expectedKey = 'foo';

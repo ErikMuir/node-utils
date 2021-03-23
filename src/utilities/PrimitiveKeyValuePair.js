@@ -1,6 +1,6 @@
-import KeyValuePair from "./KeyValuePair";
+const KeyValuePair = require("./KeyValuePair");
 
-export default class PrimitiveKeyValuePair extends KeyValuePair {
+module.exports = class PrimitiveKeyValuePair extends KeyValuePair {
   constructor(key, value) {
     super(key, value);
     validateValue(value);
