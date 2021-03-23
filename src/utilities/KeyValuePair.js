@@ -1,4 +1,4 @@
-export default class KeyValuePair {
+module.exports = class KeyValuePair {
   constructor(key, value) {
     validateKey(key);
 

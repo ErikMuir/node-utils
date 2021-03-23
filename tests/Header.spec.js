@@ -1,5 +1,5 @@
-import Header from '../src/utilities/Header';
-import PrimitiveKeyValuePair from '../src/utilities/PrimitiveKeyValuePair';
+const Header = require('../src/utilities/Header');
+const PrimitiveKeyValuePair = require('../src/utilities/PrimitiveKeyValuePair');
 
 describe('Header', () => {
   const expectedKey = 'foo';

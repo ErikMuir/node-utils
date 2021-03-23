@@ -1,7 +1,13 @@
-import KeyValuePair from './utilities/KeyValuePair';
-import PrimitiveKeyValuePair from './utilities/PrimitiveKeyValuePair';
-import Header from './utilities/Header';
-import PrimitiveMap from './utilities/PrimitiveMap';
+const KeyValuePair = require('./utilities/KeyValuePair');
+const PrimitiveKeyValuePair = require('./utilities/PrimitiveKeyValuePair');
+const Header = require('./utilities/Header');
+const PrimitiveMap = require('./utilities/PrimitiveMap');
+const testUtils = require('./utilities/test-utils');
 
-export { KeyValuePair, PrimitiveKeyValuePair, Header, PrimitiveMap };
-export * from './utilities/test-utils';
+module.exports = {
+  KeyValuePair,
+  PrimitiveKeyValuePair,
+  Header,
+  PrimitiveMap,
+  testUtils,
+};

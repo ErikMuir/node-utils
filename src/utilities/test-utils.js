@@ -1,11 +1,16 @@
-export function recordError(action) {
-    try { action(); }
-    catch (e) { return e; }
-    return undefined;
-  }
-  
-  export function expectError(action, assertions) {
-    const e = recordError(action);
-    assertions(e);
-  }
+function recordError(action) {
+  try { action(); }
+  catch (e) { return e; }
+  return undefined;
+}
+
+function expectError(action, assertions) {
+  const e = recordError(action);
+  assertions(e);
+}
+
+module.exports = {
+  recordError,
+  expectError,
+};
   
