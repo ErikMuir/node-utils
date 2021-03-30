@@ -1,11 +1,11 @@
-function recordError(action) {
-  try { action(); }
+async function recordError(action) {
+  try { await action(); }
   catch (e) { return e; }
   return undefined;
 }
 
-function expectError(action, assertions) {
-  const e = recordError(action);
+async function expectError(action, assertions) {
+  const e = await recordError(action);
   assertions(e);
 }
 
